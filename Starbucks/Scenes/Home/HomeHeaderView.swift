@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeHeaderView: View {
+    @Binding var isNeedToReload: Bool
+    
     var body: some View {
         VStack(spacing: 16.0) {
             HStack(alignment: .top) { // 여러 줄을 표시할때는 """ 를 하면 된다.
@@ -17,7 +19,9 @@ struct HomeHeaderView: View {
                 """)
                 .font(.system(size: 25.0, weight: .semibold, design: .default))
                 .frame(maxWidth: .infinity, alignment: .leading)
-                Button(action: {}, label: { Image(systemName: "arrow.2.circlepath")
+                Button(action: {
+                    isNeedToReload = true
+                }, label: { Image(systemName: "arrow.2.circlepath")
                 })
             }
             HStack {
@@ -46,8 +50,8 @@ struct HomeHeaderView: View {
     }
 }
 
-struct HomeHeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeHeaderView()
-    }
-}
+//struct HomeHeaderView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeHeaderView()
+//    }
+//}
